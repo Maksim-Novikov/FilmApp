@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bottomNavigationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomNavigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_navigation_bar_height"
+        android:layout_gravity="bottom">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/bottomNavigationFavoritesTabIcon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/bottomNavigationMainTabIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_navbar_favorites" />
+
+
+        <TextView
+            android:id="@+id/bottomNavigationBadge"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/bg_bottom_navigation_badge"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:letterSpacing="-0.02"
+            android:paddingTop="1dp"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/bottomNavigationFavoritesTabIcon"
+            app:layout_constraintStart_toStartOf="@id/bottomNavigationFavoritesTabIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="18"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/bottomNavigationMainTabIcon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/bottomNavigationListTabIcon"
+            app:layout_constraintStart_toEndOf="@id/bottomNavigationFavoritesTabIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_navbar_main" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/bottomNavigationListTabIcon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/bottomNavigationMainTabIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_navbar_list" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

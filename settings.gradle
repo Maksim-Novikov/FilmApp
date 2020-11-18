@@ -1,0 +1,8 @@
+include ':search'
+include ':film_detail'
+include ':favorites'
+include ':home'
+include ':common'
+include ':bottom_navigation'
+include ':app'
+rootProject.name = "FilmApp"
