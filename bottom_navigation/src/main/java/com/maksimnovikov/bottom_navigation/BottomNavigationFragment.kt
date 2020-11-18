@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.github.terrakok.cicerone.Router
 import com.maksimnovikov.common.BaseFragment
+import com.maksimnovikov.common.extensions.setTint
 import kotlinx.android.synthetic.main.bottom_navigation_screen.*
 import javax.inject.Inject
 
