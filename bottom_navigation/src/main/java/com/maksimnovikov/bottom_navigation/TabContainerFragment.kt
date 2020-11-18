@@ -7,8 +7,6 @@ import com.github.terrakok.cicerone.Navigator
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.maksimnovikov.common.BaseFragment
-import dagger.Module
-import dagger.android.ContributesAndroidInjector
 import javax.inject.Inject
 
 class TabContainerFragment : BaseFragment(R.layout.tab_container_fragment) {
@@ -93,12 +91,3 @@ class TabContainerFragment : BaseFragment(R.layout.tab_container_fragment) {
     }
 }
 
-@Module
-interface BottomInjector {
-
-    @ContributesAndroidInjector
-    fun contributesBottomFragment(): BottomNavigationFragment
-
-    @ContributesAndroidInjector
-    fun contributesTabContainerFragment(): TabContainerFragment
-}
