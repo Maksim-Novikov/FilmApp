@@ -15,7 +15,7 @@ class HomeFragment : BaseFragment(R.layout.home_screen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         homeDetail.setOnClickListener {
-            homeRouter.showDetailInfo(FilmId("100"))
+            homeRouter.showDetailInfo(FilmId(100))
         }
     }
 

@@ -25,9 +25,9 @@ class CommonModulePlugin : Plugin<Project> {
         project.plugins.apply("kotlin-kapt")
         project.plugins.apply("kotlin-android-extensions")
 
-        val androidExtension = project.extensions.getByName("android")
-        if (androidExtension is BaseExtension) {
-            androidExtension.apply {
+        val androidRootExtensions = project.extensions.getByName("android")
+        if (androidRootExtensions is BaseExtension) {
+            androidRootExtensions.apply {
                 compileSdkVersion(30)
                 defaultConfig {
                     if (this is AppExtension) {
@@ -70,34 +70,46 @@ class CommonModulePlugin : Plugin<Project> {
                     }
                 }
             }
-            val lowCase = if (androidExtension is AppExtension) "implementation" else "compileOnly"
-            val upperCase = lowCase.capitalize()
+            // we don't need implement dependencies in libraries modules
+            val implement =
+                if (androidRootExtensions is AppExtension) "implementation" else "compileOnly"
+            val capitalize = implement.capitalize()
             project.dependencies {
-                add(lowCase, "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN")
-                add(lowCase, "androidx.core:core-ktx:$CORE_KTX")
-                add(lowCase, "androidx.appcompat:appcompat:$APPCOMPAT")
-                add(lowCase, "com.google.android.material:material:$MATERIAL")
-                add(lowCase, "androidx.constraintlayout:constraintlayout:$CONSTRAINT_LAYOUT")
-                add("test${upperCase}", "junit:junit:$JUNIT_VERSION")
+                add(implement, "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN")
+                add(implement, "androidx.core:core-ktx:$CORE_KTX")
+                add(implement, "androidx.appcompat:appcompat:$APPCOMPAT")
+                add(implement, "com.google.android.material:material:$MATERIAL")
+                add(implement, "androidx.constraintlayout:constraintlayout:$CONSTRAINT_LAYOUT")
+                add("test${capitalize}", "junit:junit:$JUNIT_VERSION")
 
                 // Cicerone
-                add(lowCase, "com.github.terrakok:cicerone:$CICERONE")
+                add(implement, "com.github.terrakok:cicerone:$CICERONE")
 
                 // Dagger
                 add("kapt", "com.google.dagger:dagger-android-processor:$DAGGER")
                 add("kapt", "com.google.dagger:dagger-compiler:$DAGGER")
-                add(lowCase, "com.google.dagger:dagger:$DAGGER")
-                add(lowCase, "com.google.dagger:dagger-android-support:$DAGGER")
-                add(lowCase, "com.google.dagger:dagger-android:$DAGGER")
+                add(implement, "com.google.dagger:dagger:$DAGGER")
+                add(implement, "com.google.dagger:dagger-android-support:$DAGGER")
+                add(implement, "com.google.dagger:dagger-android:$DAGGER")
 
                 // Timber
-                add(lowCase, "com.jakewharton.timber:timber:$TIMBER")
+                add(implement, "com.jakewharton.timber:timber:$TIMBER")
 
-                add("androidTest${upperCase}", "androidx.test.ext:junit:$JUNIT_EXT")
+                add("androidTest${capitalize}", "androidx.test.ext:junit:$JUNIT_EXT")
                 add(
-                    "androidTest${upperCase}",
+                    "androidTest${capitalize}",
                     "androidx.test.espresso:espresso-core:$ESPRESSO_CORE"
                 )
+
+                add(implement, Libs.Moshi.core)
+                add(implement, Libs.Moshi.kotlin)
+                add(implement, Libs.Moshi.adapters)
+
+                add(implement, Libs.Retrofit.loggingInterceptor)
+                add(implement, Libs.Retrofit.core)
+                add(implement, Libs.Retrofit.coroutinesAdapter)
+                add(implement, Libs.Retrofit.converterMoshi)
+
             }
         }
     }

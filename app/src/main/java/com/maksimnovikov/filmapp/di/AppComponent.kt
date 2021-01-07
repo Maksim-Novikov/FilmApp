@@ -2,11 +2,9 @@ package com.maksimnovikov.filmapp.di
 
 import android.content.Context
 import com.maksimnovikov.favorites.FavoritesInjector
-import com.maksimnovikov.film_detail.FilmDetailInjector
 import com.maksimnovikov.filmapp.App
 import com.maksimnovikov.filmapp.MainActivityInjector
-import com.maksimnovikov.filmapp.di.modules.NavigationModule
-import com.maksimnovikov.filmapp.di.modules.RouterModule
+import com.maksimnovikov.filmapp.di.modules.*
 import com.maksimnovikov.search.SearchInjector
 import dagger.BindsInstance
 import dagger.Component
@@ -16,6 +14,8 @@ import javax.inject.Singleton
 
 @Component(
     modules = [
+        AppModule::class,
+        NetworkModule::class,
         NavigationModule::class,
         RouterModule::class,
         AndroidInjectionModule::class,
@@ -23,7 +23,8 @@ import javax.inject.Singleton
         com.maksimnovikov.bottom_navigation.BottomInjector::class,
         com.maksimnovikov.home.HomeInjector::class,
         SearchInjector::class,
-        FilmDetailInjector::class,
+        FilmDetailFeatureModule::class,
+//        FilmDetailInjector::class,
         FavoritesInjector::class,
     ]
 )

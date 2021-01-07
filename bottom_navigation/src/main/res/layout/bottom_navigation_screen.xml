@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomNavigationBar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/bottom_navigation_bar_height"
+        android:layout_height="50dp"
         android:layout_gravity="bottom">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -26,8 +26,7 @@
             app:layout_constraintEnd_toStartOf="@id/bottomNavigationMainTabIcon"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_navbar_favorites" />
-
+            app:srcCompat="@drawable/ic_bottom_favorites" />
 
         <TextView
             android:id="@+id/bottomNavigationBadge"
@@ -60,7 +59,7 @@
             app:layout_constraintEnd_toStartOf="@id/bottomNavigationListTabIcon"
             app:layout_constraintStart_toEndOf="@id/bottomNavigationFavoritesTabIcon"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_navbar_main" />
+            app:srcCompat="@drawable/ic_home" />
 
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -73,6 +72,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/bottomNavigationMainTabIcon"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_navbar_list" />
+            app:srcCompat="@drawable/ic_search" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
