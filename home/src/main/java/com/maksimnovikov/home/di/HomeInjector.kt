@@ -1,5 +1,6 @@
-package com.maksimnovikov.home
+package com.maksimnovikov.home.di
 
+import com.maksimnovikov.home.ui.HomeFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

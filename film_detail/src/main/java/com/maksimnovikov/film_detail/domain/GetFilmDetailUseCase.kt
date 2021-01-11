@@ -1,6 +1,6 @@
 package com.maksimnovikov.film_detail.domain
 
-import com.maksimnovikov.common.entity.FilmId
+import com.maksimnovikov.common.domain.entity.FilmId
 import com.maksimnovikov.film_detail.data.FilmDetailApi
 import javax.inject.Inject
 

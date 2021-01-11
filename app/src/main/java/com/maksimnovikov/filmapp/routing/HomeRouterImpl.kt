@@ -1,7 +1,7 @@
 package com.maksimnovikov.filmapp.routing
 
 import com.maksimnovikov.bottom_navigation.LocalCiceroneHolder
-import com.maksimnovikov.common.entity.FilmId
+import com.maksimnovikov.common.domain.entity.FilmId
 import com.maksimnovikov.film_detail.di.FilmDetailFeatureApi
 import com.maksimnovikov.home.HomeRouter
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.maksimnovikov.common
+package com.maksimnovikov.common.di
 
 import javax.inject.Scope
 

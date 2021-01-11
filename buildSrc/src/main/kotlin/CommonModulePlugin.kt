@@ -1,21 +1,13 @@
-import Versions.APPCOMPAT
-import Versions.CICERONE
-import Versions.CONSTRAINT_LAYOUT
-import Versions.CORE_KTX
-import Versions.DAGGER
-import Versions.ESPRESSO_CORE
-import Versions.JUNIT_EXT
-import Versions.JUNIT_VERSION
-import Versions.KOTLIN
-import Versions.MATERIAL
-import Versions.TIMBER
+import Versions.kotlin
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.add
 import org.gradle.kotlin.dsl.dependencies
+import org.gradle.kotlin.dsl.exclude
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 class CommonModulePlugin : Plugin<Project> {
@@ -41,20 +33,26 @@ class CommonModulePlugin : Plugin<Project> {
 
                     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
                 }
+                buildFeatures.viewBinding = true
                 // Configure common proguard file settings.
                 val proguardFile = "proguard-rules.pro"
                 when (this) {
-                    is LibraryExtension -> defaultConfig {
-                        consumerProguardFiles(proguardFile)
+                    is LibraryExtension -> {
+                        defaultConfig {
+                            consumerProguardFiles(proguardFile)
+                        }
                     }
-                    is AppExtension -> buildTypes {
-                        getByName("release") {
-                            isMinifyEnabled = true
-                            isShrinkResources = true
-                            proguardFiles(
-                                getDefaultProguardFile("proguard-android-optimize.txt"),
-                                proguardFile
-                            )
+
+                    is AppExtension -> {
+                        buildTypes {
+                            getByName("release") {
+                                isMinifyEnabled = true
+                                isShrinkResources = true
+                                proguardFiles(
+                                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                                    proguardFile
+                                )
+                            }
                         }
                     }
                 }
@@ -69,47 +67,76 @@ class CommonModulePlugin : Plugin<Project> {
                         jvmTarget = "1.8"
                     }
                 }
+
             }
             // we don't need implement dependencies in libraries modules
             val implement =
                 if (androidRootExtensions is AppExtension) "implementation" else "compileOnly"
             val capitalize = implement.capitalize()
-            project.dependencies {
-                add(implement, "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN")
-                add(implement, "androidx.core:core-ktx:$CORE_KTX")
-                add(implement, "androidx.appcompat:appcompat:$APPCOMPAT")
-                add(implement, "com.google.android.material:material:$MATERIAL")
-                add(implement, "androidx.constraintlayout:constraintlayout:$CONSTRAINT_LAYOUT")
-                add("test${capitalize}", "junit:junit:$JUNIT_VERSION")
+            val androidTest = "androidTest${capitalize}"
+            val test = "test${capitalize}"
+            val kapt = "kapt"
+            val debug = "debug$capitalize"
 
-                // Cicerone
-                add(implement, "com.github.terrakok:cicerone:$CICERONE")
+            project.dependencies {
+                add(implement, "org.jetbrains.kotlin:kotlin-stdlib:$kotlin")
+                add(implement, Libs.Coroutines.core)
+                add(implement, Libs.AndroidX.contraint)
+                add(implement, Libs.AndroidX.recyclerView)
+                add(implement, Libs.AndroidX.appCompat)
+                add(implement, Libs.AndroidX.material)
+                add(implement, Libs.AndroidX.coreKtx)
+                add(implement, Libs.AndroidX.fragmentKtx)
+                add(implement, Libs.AndroidX.multiDex)
+                add(implement, Libs.AndroidX.lifecycleViewmodelKtx)
+                add(implement, Libs.AndroidX.lifecycleRuntimeKtx)
+
+                add(implement, Libs.UI.delegateAdapterCore)
+                add(implement, Libs.UI.delegateAdapterViewBiding)
+                add(implement, Libs.UI.viewBindingUtils)
+
+                add(implement, Libs.Cicerone.core)
 
                 // Dagger
-                add("kapt", "com.google.dagger:dagger-android-processor:$DAGGER")
-                add("kapt", "com.google.dagger:dagger-compiler:$DAGGER")
-                add(implement, "com.google.dagger:dagger:$DAGGER")
-                add(implement, "com.google.dagger:dagger-android-support:$DAGGER")
-                add(implement, "com.google.dagger:dagger-android:$DAGGER")
+                add(implement, Libs.Dagger.dagger)
+                add(implement, Libs.Dagger.androidSupport)
+                add(implement, Libs.Dagger.android)
+                add(kapt, Libs.Dagger.kaptProcessor)
+                add(kapt, Libs.Dagger.kaptCompiler)
 
                 // Timber
-                add(implement, "com.jakewharton.timber:timber:$TIMBER")
-
-                add("androidTest${capitalize}", "androidx.test.ext:junit:$JUNIT_EXT")
-                add(
-                    "androidTest${capitalize}",
-                    "androidx.test.espresso:espresso-core:$ESPRESSO_CORE"
-                )
+                add(implement, Libs.Logger.timber)
 
                 add(implement, Libs.Moshi.core)
-                add(implement, Libs.Moshi.kotlin)
                 add(implement, Libs.Moshi.adapters)
+                add("kapt", Libs.Moshi.codegen)
 
                 add(implement, Libs.Retrofit.loggingInterceptor)
                 add(implement, Libs.Retrofit.core)
                 add(implement, Libs.Retrofit.coroutinesAdapter)
                 add(implement, Libs.Retrofit.converterMoshi)
 
+
+                add(implement, Libs.Glide.core)
+                add(kapt, Libs.Glide.compiler)
+                add(implement, Libs.Glide.okhttp3Integration) {
+                    exclude(group = "glide-parent")
+                }
+
+
+                add(androidTest, Libs.Test.espresso)
+                add(androidTest, Libs.Test.testRunner)
+                add(androidTest, Libs.Test.testCore)
+                add(androidTest, Libs.Test.testExtJunit)
+                add(androidTest, Libs.Test.testRules)
+                add(test, Libs.Test.kotlinTestCore)
+                add(test, Libs.Test.kotlinTestAssertions)
+                add(test, Libs.Test.kotlinTestRunnerJunit5)
+                add(test, Libs.Test.junit)
+                add(test, Libs.Test.mockitoCore)
+                add(test, Libs.Test.mockitoInline)
+                add(test, Libs.Test.robolectric)
+                add("api", Libs.Test.guava)
             }
         }
     }

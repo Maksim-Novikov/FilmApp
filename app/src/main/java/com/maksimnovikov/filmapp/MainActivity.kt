@@ -5,6 +5,7 @@ import com.github.terrakok.cicerone.Navigator
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
+import com.maksimnovikov.common.ui.BaseFragment
 import com.maksimnovikov.filmapp.routing.Screens
 import dagger.Lazy
 import dagger.android.support.DaggerAppCompatActivity
@@ -50,8 +51,8 @@ class MainActivity : DaggerAppCompatActivity() {
         super.onPause()
     }
 
-    private val currentFragment: com.maksimnovikov.common.BaseFragment?
-        get() = supportFragmentManager.findFragmentById(R.id.mainActivityContainer) as? com.maksimnovikov.common.BaseFragment
+    private val currentFragment: BaseFragment?
+        get() = supportFragmentManager.findFragmentById(R.id.mainActivityContainer) as? BaseFragment
 
     override fun onBackPressed() {
         currentFragment?.onBackPressed() ?: super.onBackPressed()

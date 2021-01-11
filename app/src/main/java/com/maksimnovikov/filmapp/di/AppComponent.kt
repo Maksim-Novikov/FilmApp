@@ -5,6 +5,8 @@ import com.maksimnovikov.favorites.FavoritesInjector
 import com.maksimnovikov.filmapp.App
 import com.maksimnovikov.filmapp.MainActivityInjector
 import com.maksimnovikov.filmapp.di.modules.*
+import com.maksimnovikov.home.di.HomeInjector
+import com.maksimnovikov.home.di.HomeModule
 import com.maksimnovikov.search.SearchInjector
 import dagger.BindsInstance
 import dagger.Component
@@ -21,11 +23,12 @@ import javax.inject.Singleton
         AndroidInjectionModule::class,
         MainActivityInjector::class,
         com.maksimnovikov.bottom_navigation.BottomInjector::class,
-        com.maksimnovikov.home.HomeInjector::class,
+        HomeInjector::class,
         SearchInjector::class,
         FilmDetailFeatureModule::class,
 //        FilmDetailInjector::class,
         FavoritesInjector::class,
+        HomeModule::class,
     ]
 )
 @Singleton

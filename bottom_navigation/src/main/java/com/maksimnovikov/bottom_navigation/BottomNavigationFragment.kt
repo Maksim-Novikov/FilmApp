@@ -3,8 +3,9 @@ package com.maksimnovikov.bottom_navigation
 import android.os.Bundle
 import android.view.View
 import com.github.terrakok.cicerone.Router
-import com.maksimnovikov.common.BaseFragment
-import com.maksimnovikov.common.extensions.setTint
+import com.maksimnovikov.common.ui.BackPressedListener
+import com.maksimnovikov.common.ui.BaseFragment
+import com.maksimnovikov.common.ui.extensions.setTint
 import kotlinx.android.synthetic.main.bottom_navigation_screen.*
 import javax.inject.Inject
 
@@ -30,8 +31,8 @@ class BottomNavigationFragment : BaseFragment(R.layout.bottom_navigation_screen)
         setTab(Tab.Home())
     }
 
-    private val currentFragment: BaseFragment?
-        get() = childFragmentManager.findFragmentById(R.id.bottomNavigationContainer) as? BaseFragment
+    private val currentFragment: BackPressedListener?
+        get() = childFragmentManager.findFragmentById(R.id.bottomNavigationContainer) as? BackPressedListener
 
     override fun onBackPressed() {
         currentFragment?.onBackPressed() ?: super.onBackPressed()

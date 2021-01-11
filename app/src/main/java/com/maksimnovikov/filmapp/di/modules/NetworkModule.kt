@@ -21,7 +21,15 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideOkHttp() =
-        OkHttpClient.Builder().apply {}.build()
+        OkHttpClient.Builder().apply {
+            addInterceptor { chain ->
+                val request = chain.request().newBuilder().run {
+                    header("X-API-KEY", "541251fa-c296-4fc4-af05-7ae52e3e6401")
+                    build()
+                }
+                chain.proceed(request)
+            }
+        }.build()
 
     @Provides
     @Singleton

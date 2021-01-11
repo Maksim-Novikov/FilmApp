@@ -1,4 +1,4 @@
-package com.maksimnovikov.common.entity
+package com.maksimnovikov.common.domain.entity
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

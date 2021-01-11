@@ -2,7 +2,7 @@ package com.maksimnovikov.film_detail.di
 
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.FragmentScreen
-import com.maksimnovikov.common.entity.FilmId
+import com.maksimnovikov.common.domain.entity.FilmId
 import com.maksimnovikov.film_detail.presentation.FilmDetailFragment
 import javax.inject.Inject
 

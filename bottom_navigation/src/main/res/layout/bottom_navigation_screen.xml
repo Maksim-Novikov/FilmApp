@@ -8,13 +8,15 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bottomNavigationContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomNavigationBar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_gravity="bottom">
+        android:layout_gravity="bottom"
+        android:background="@color/white">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/bottomNavigationFavoritesTabIcon"

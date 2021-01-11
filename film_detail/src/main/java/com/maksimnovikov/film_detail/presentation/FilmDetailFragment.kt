@@ -3,15 +3,16 @@ package com.maksimnovikov.film_detail.presentation
 import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
-import com.maksimnovikov.common.BaseFragment
-import com.maksimnovikov.common.entity.FilmId
+import androidx.fragment.app.Fragment
+import com.maksimnovikov.common.domain.entity.FilmId
+import com.maksimnovikov.common.ui.BackPressedListener
 import com.maksimnovikov.film_detail.FilmDetailRouter
 import com.maksimnovikov.film_detail.R
 import com.maksimnovikov.film_detail.di.FilmDetailComponentHolder
 import kotlinx.android.synthetic.main.film_detail_screen.*
 import javax.inject.Inject
 
-class FilmDetailFragment : BaseFragment(R.layout.film_detail_screen) {
+class FilmDetailFragment : Fragment(R.layout.film_detail_screen), BackPressedListener {
 
     @Inject
     lateinit var router: FilmDetailRouter

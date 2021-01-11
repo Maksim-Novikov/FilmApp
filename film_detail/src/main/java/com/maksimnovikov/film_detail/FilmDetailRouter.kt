@@ -1,6 +1,6 @@
 package com.maksimnovikov.film_detail
 
-import com.maksimnovikov.common.entity.FilmId
+import com.maksimnovikov.common.domain.entity.FilmId
 
 interface FilmDetailRouter {
 

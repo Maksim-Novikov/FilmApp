@@ -1,6 +1,6 @@
 package com.maksimnovikov.film_detail.di
 
-import com.maksimnovikov.common.PerFeature
+import com.maksimnovikov.common.di.PerFeature
 import com.maksimnovikov.film_detail.data.FilmDetailApi
 import dagger.Module
 import dagger.Provides

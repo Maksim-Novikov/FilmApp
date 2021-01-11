@@ -1,6 +1,6 @@
 package com.maksimnovikov.home
 
-import com.maksimnovikov.common.entity.FilmId
+import com.maksimnovikov.common.domain.entity.FilmId
 
 interface HomeRouter {
 

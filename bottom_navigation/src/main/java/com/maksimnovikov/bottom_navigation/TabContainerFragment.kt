@@ -6,7 +6,8 @@ import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.Navigator
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
-import com.maksimnovikov.common.BaseFragment
+import com.maksimnovikov.common.ui.BackPressedListener
+import com.maksimnovikov.common.ui.BaseFragment
 import javax.inject.Inject
 
 class TabContainerFragment : BaseFragment(R.layout.tab_container_fragment) {
@@ -59,8 +60,8 @@ class TabContainerFragment : BaseFragment(R.layout.tab_container_fragment) {
         cicerone.router
     }
 
-    private val currentFragment: BaseFragment?
-        get() = childFragmentManager.findFragmentById(R.id.fragment_container) as? BaseFragment
+    private val currentFragment: BackPressedListener?
+        get() = childFragmentManager.findFragmentById(R.id.fragment_container) as? BackPressedListener
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

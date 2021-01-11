@@ -6,15 +6,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.maksimnovikov.common.BaseFragment
+import com.maksimnovikov.common.ui.BaseFragment
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.search_item.*
 import javax.inject.Inject
 
 class SearchFragment : BaseFragment(R.layout.search_screen) {
 
     @Inject
     lateinit var router: SearchRouter
+
     override fun onBackPressed() {
         router.close()
     }
@@ -44,7 +44,7 @@ class SearchAdapter : ListAdapter<FilmSearch, SearchAdapter.ViewHolder>(
         LayoutContainer {
 
         fun bind(filmSearch: FilmSearch) {
-            searchItemBanner
+//            searchItemBanner
         }
     }
 }

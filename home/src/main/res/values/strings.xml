@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="top_250_best_films">топ 250 лучших фильмов</string>
+    <string name="top_100_popular_films">топ 100 популярных фильмов</string>
+    <string name="top_await_films">топ ожидаемых фильмов</string>
+</resources>
