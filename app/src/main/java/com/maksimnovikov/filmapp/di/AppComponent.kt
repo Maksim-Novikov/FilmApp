@@ -7,7 +7,8 @@ import com.maksimnovikov.filmapp.MainActivityInjector
 import com.maksimnovikov.filmapp.di.modules.*
 import com.maksimnovikov.home.di.HomeInjector
 import com.maksimnovikov.home.di.HomeModule
-import com.maksimnovikov.search.SearchInjector
+import com.maksimnovikov.search.di.SearchFilmModule
+import com.maksimnovikov.search.di.SearchInjector
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -29,6 +30,7 @@ import javax.inject.Singleton
 //        FilmDetailInjector::class,
         FavoritesInjector::class,
         HomeModule::class,
+        SearchFilmModule::class
     ]
 )
 @Singleton
@@ -38,7 +40,7 @@ interface AppComponent : AndroidInjector<App> {
     interface Builder {
 
         fun create(
-            @BindsInstance context: Context
+            @BindsInstance context: Context,
         ): AppComponent
     }
 }

@@ -17,3 +17,11 @@ var RecyclerView.savedScrollState: Parcelable?
     set(value) {
         layoutManager?.onRestoreInstanceState(value)
     }
+
+fun RecyclerView.hideKeyboardOnScroll() {
+    onScrollStateChange { recyclerView, newState ->
+        if (newState == RecyclerView.SCROLL_STATE_DRAGGING) {
+            recyclerView.hideKeyboard()
+        }
+    }
+}

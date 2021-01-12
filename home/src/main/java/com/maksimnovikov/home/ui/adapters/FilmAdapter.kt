@@ -17,7 +17,8 @@ fun filmAdapter(onFilmClick: (Film) -> Unit) =
             onFilmClick(item)
         }
         bind {
-            binding.filmItemName.text = item.name joinByNewLine item.year.join(item.genre, ", ")
+            binding.filmItemName.text =
+                item.nameRu joinByNewLine item.year.join(item.firstGenre, ", ")
             binding.filmItemImage.setImageUrl(item.posterUrlPreview)
         }
     }

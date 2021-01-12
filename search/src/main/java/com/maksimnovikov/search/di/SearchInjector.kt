@@ -1,5 +1,6 @@
-package com.maksimnovikov.search
+package com.maksimnovikov.search.di
 
+import com.maksimnovikov.search.ui.SearchFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

@@ -6,7 +6,7 @@ import com.maksimnovikov.common.domain.entity.FilmId
 import com.maksimnovikov.favorites.FavoritesFragment
 import com.maksimnovikov.film_detail.presentation.FilmDetailFragment
 import com.maksimnovikov.home.ui.HomeFragment
-import com.maksimnovikov.search.SearchFragment
+import com.maksimnovikov.search.ui.SearchFragment
 
 object Screens {
 
