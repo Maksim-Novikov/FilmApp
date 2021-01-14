@@ -63,7 +63,7 @@ class SearchFragment : BaseFragment(R.layout.search_screen) {
         }
         viewModel.navigationCommand.collectInViewLifecycle {
             when (it) {
-                is NavigationCommand.ToFilmDetail -> router.showDetailInfo(it.filmId)
+                is NavigationCommand.ToFilmDetail -> router.showDetailInfo(it.film)
             }
         }
     }

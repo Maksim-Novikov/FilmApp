@@ -85,7 +85,7 @@ class HomeFragment : BaseFragment(R.layout.home_screen) {
         }
         viewModel.navigationCommand.collectInViewLifecycle {
             when (it) {
-                is NavigationCommand.ToFilmDetail -> homeRouter.showDetailInfo(it.filmId)
+                is NavigationCommand.ToFilmDetail -> homeRouter.showDetailInfo(it.film)
                 NavigationCommand.Back -> homeRouter.close()
             }
         }

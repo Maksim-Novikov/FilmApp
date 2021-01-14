@@ -1,10 +1,10 @@
 package com.maksimnovikov.search
 
-import com.maksimnovikov.common.domain.entity.FilmId
+import com.maksimnovikov.common.domain.entity.Film
 
 interface SearchRouter {
 
-    fun showDetailInfo(filmId: FilmId)
+    fun showDetailInfo(film: Film)
 
     fun close()
 

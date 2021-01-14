@@ -1,9 +1,9 @@
 package com.maksimnovikov.home
 
-import com.maksimnovikov.common.domain.entity.FilmId
+import com.maksimnovikov.common.domain.entity.Film
 
 interface HomeRouter {
 
-    fun showDetailInfo(filmId: FilmId)
+    fun showDetailInfo(film: Film)
     fun close()
 }

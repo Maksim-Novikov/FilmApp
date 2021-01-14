@@ -117,7 +117,7 @@ class WindowInsetsFrameLayout @JvmOverloads constructor(
 ) {
 
     init {
-        ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(this) { _, insets ->
             val childCount = childCount
             for (index in 0 until childCount) {
                 ViewCompat.dispatchApplyWindowInsets(getChildAt(index), insets)

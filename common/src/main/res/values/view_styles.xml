@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Styles for toolbar -->
+    <style name="BackNavigationIcon">
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/toolbar_height</item>
+        <item name="srcCompat">@drawable/ic_arrow_back</item>
+    </style>
+
+
+</resources>

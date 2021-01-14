@@ -49,6 +49,6 @@ class SearchViewModel @Inject constructor(
     }
 
     fun onFilmClicked(film: Film) {
-        _navigationCommand.tryEmit(NavigationCommand.ToFilmDetail(film.filmId))
+        _navigationCommand.tryEmit(NavigationCommand.ToFilmDetail(film))
     }
 }

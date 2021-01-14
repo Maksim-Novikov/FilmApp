@@ -33,7 +33,7 @@ class HomeViewModel @Inject constructor(
     }
 
     fun onFilmClick(film: Film) {
-        _navigationCommand.tryEmit(NavigationCommand.ToFilmDetail(film.filmId))
+        _navigationCommand.tryEmit(NavigationCommand.ToFilmDetail(film))
     }
 
     fun onBackPressed() {

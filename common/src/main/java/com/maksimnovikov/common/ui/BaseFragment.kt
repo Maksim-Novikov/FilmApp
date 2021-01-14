@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
 abstract class BaseFragment(
-    @LayoutRes contentLayoutId: Int = 0
+    @LayoutRes contentLayoutId: Int = 0,
 ) : Fragment(contentLayoutId), HasAndroidInjector, BackPressedListener {
 
     @Inject
@@ -27,6 +27,20 @@ abstract class BaseFragment(
     override fun onBackPressed() {}
 
     override fun androidInjector(): AndroidInjector<Any> = androidInjector
+
+    fun <T> Flow<T>.collectInViewLifecycle(block: (T) -> Unit) {
+        viewLifecycleOwner.lifecycleScope.launchWhenCreated {
+            collect { block(it) }
+        }
+    }
+}
+
+
+abstract class BaseFragment2(
+    @LayoutRes contentLayoutId: Int = 0,
+) : Fragment(contentLayoutId), BackPressedListener {
+
+    override fun onBackPressed() {}
 
     fun <T> Flow<T>.collectInViewLifecycle(block: (T) -> Unit) {
         viewLifecycleOwner.lifecycleScope.launchWhenCreated {

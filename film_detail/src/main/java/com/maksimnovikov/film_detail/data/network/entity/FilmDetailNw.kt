@@ -1,7 +1,9 @@
-package com.maksimnovikov.film_detail.data
+package com.maksimnovikov.film_detail.data.network.entity
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 data class FilmDetailNw(
 
     @Json(name = "images")
@@ -23,6 +25,7 @@ data class FilmDetailNw(
     val budget: Budget? = null
 )
 
+@JsonClass(generateAdapter = true)
 data class EpisodesItem(
 
     @Json(name = "nameRu")
@@ -44,12 +47,14 @@ data class EpisodesItem(
     val episodeNumber: Int? = null
 )
 
+@JsonClass(generateAdapter = true)
 data class GenresItem(
 
-    @Json(name = "name")
-    val name: String? = null
+    @Json(name = "genre")
+    val genre: String? = null,
 )
 
+@JsonClass(generateAdapter = true)
 data class Rating(
 
     @Json(name = "ratingRfCriticsVoteCount")
@@ -83,6 +88,7 @@ data class Rating(
     val ratingFilmCriticsVoteCount: Int? = null
 )
 
+@JsonClass(generateAdapter = true)
 data class BackdropsItem(
 
     @Json(name = "width")
@@ -98,6 +104,7 @@ data class BackdropsItem(
     val height: Int? = null
 )
 
+@JsonClass(generateAdapter = true)
 data class Budget(
 
     @Json(name = "marketing")
@@ -116,6 +123,7 @@ data class Budget(
     val budget: String? = null
 )
 
+@JsonClass(generateAdapter = true)
 data class Images(
 
     @Json(name = "backdrops")
@@ -125,6 +133,7 @@ data class Images(
     val posters: List<PostersItem?>? = null
 )
 
+@JsonClass(generateAdapter = true)
 data class PostersItem(
 
     @Json(name = "width")
@@ -140,12 +149,14 @@ data class PostersItem(
     val height: Int? = null
 )
 
+@JsonClass(generateAdapter = true)
 data class ExternalId(
 
     @Json(name = "imdbId")
     val imdbId: String? = null
 )
 
+@JsonClass(generateAdapter = true)
 data class SeasonsItem(
 
     @Json(name = "number")
@@ -155,6 +166,7 @@ data class SeasonsItem(
     val episodes: List<EpisodesItem?>? = null
 )
 
+@JsonClass(generateAdapter = true)
 data class Data(
 
     @Json(name = "premiereDigital")
@@ -233,12 +245,14 @@ data class Data(
     val slogan: String? = null
 )
 
+@JsonClass(generateAdapter = true)
 data class CountriesItem(
 
-    @Json(name = "name")
-    val name: String? = null
+    @Json(name = "country")
+    val country: String? = null,
 )
 
+@JsonClass(generateAdapter = true)
 data class Review(
 
     @Json(name = "ratingGoodReviewVoteCount")

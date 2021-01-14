@@ -1,9 +1,12 @@
 package com.maksimnovikov.common.ui.extensions
 
+import android.content.Context
 import android.graphics.Rect
 import android.os.Build
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.maksimnovikov.common.R
@@ -48,3 +51,9 @@ var View.bottomMargin: Int
             bottomMargin = value
         }
     }
+
+fun ViewGroup.inflate(@LayoutRes id: Int, attachToRoot: Boolean = true) =
+    LayoutInflater.from(context).inflate(id, this, attachToRoot)
+
+fun Context.inflate(@LayoutRes id: Int) =
+    LayoutInflater.from(this).inflate(id, null, false)

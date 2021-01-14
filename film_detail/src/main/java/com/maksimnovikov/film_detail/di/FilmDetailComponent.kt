@@ -1,7 +1,7 @@
 package com.maksimnovikov.film_detail.di
 
 import com.maksimnovikov.common.di.PerFeature
-import com.maksimnovikov.film_detail.presentation.FilmDetailFragment
+import com.maksimnovikov.film_detail.ui.FilmDetailFragment
 import dagger.Component
 
 @Component(

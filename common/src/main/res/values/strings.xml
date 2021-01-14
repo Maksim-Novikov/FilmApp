@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_view_absent_network">Проблемы с интернетом</string>
+    <string name="error_view_some_error">Произошла ошибка\n во время загрузки</string>
+    <string name="error_view_retry">повторить загрузку</string>
+</resources>

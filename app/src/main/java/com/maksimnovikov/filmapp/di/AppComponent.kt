@@ -27,7 +27,6 @@ import javax.inject.Singleton
         HomeInjector::class,
         SearchInjector::class,
         FilmDetailFeatureModule::class,
-//        FilmDetailInjector::class,
         FavoritesInjector::class,
         HomeModule::class,
         SearchFilmModule::class

@@ -1,7 +1,10 @@
 package com.maksimnovikov.common.domain.entity
 
+import android.os.Parcelable
 import com.maksimnovikov.common.data.network.entity.FilmNw
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Film(
     val filmId: FilmId,
     val nameRu: String,
@@ -11,7 +14,7 @@ data class Film(
     private val countries: List<Country>,
     val rating: String,
     val posterUrlPreview: String?,
-) {
+) : Parcelable {
 
     val firstGenre: String? get() = genres.firstOrNull()?.name
     val country: String get() = countries.joinToString(separator = ", ", transform = { it.name })
